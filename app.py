@@ -14,7 +14,7 @@ def get_char(input_int, char_array):
     return char_array[math.floor(input_int * interval)]
 
 def operation(image, chars, scale_factor, one_char_width, one_char_height, background_color, new_r, new_g, new_b, auto_colors, saturation, brightness):
-    char_array = list(chars)
+    char_array = list(chars)[::-1]
 
     im = image.convert('RGB')
 
@@ -56,7 +56,7 @@ if uploaded_file is not None:
     col1, col2 = st.columns(2)
 
     with col1:
-        st.image(image, caption='Original Image', use_column_width=True)
+        st.image(image, caption='Original Image', use_container_width=True)
 
     with col2:
         st.subheader("Settings")
@@ -84,7 +84,7 @@ if uploaded_file is not None:
         if st.button("Generate"):
             output_image, ascii_string = operation(image, chars, scale_factor, one_char_width, one_char_height, background_color, new_r, new_g, new_b, auto_colors, saturation, brightness)
 
-            st.image(output_image, caption='Ascified Image', use_column_width=True)
+            st.image(output_image, caption='Ascified Image', use_container_width=True)
 
             st.text_area("ASCII String", ascii_string, height=300)
 
