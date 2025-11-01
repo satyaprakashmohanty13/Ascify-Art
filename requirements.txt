@@ -1,5 +1,2 @@
-customtkinter
-CTkColorPicker
-pillow
-matplotlib
-tkinterdnd2
+streamlit
+Pillow
